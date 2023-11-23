@@ -39,11 +39,14 @@ const namespace = {
 		canonical_coder: UuidCoder,
 		raw_coder: HexCoder,
 	}),
+	Uuid4: new VersionedIdFactory({
+		abstract_id: Uuid4,
+		versioned_ids: [
+			Uuid4,
+		],
+		canonical_coder: UuidCoder,
+		raw_coder: HexCoder,
+	}),
 };
-
-namespace.Uuid.versioned_ids.reduce(
-	(ns, uuid) => Object.assign(ns, {[uuid.name]: uuid}),
-	namespace
-);
 
 module.exports = namespace;
